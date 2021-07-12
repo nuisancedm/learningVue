@@ -17,13 +17,14 @@
 
     <script>
        const secondList={
-           template:`<div>{{text}}</div>`,
-            props:["text"]
+           template:`<div>{{"我是"+number+text}}</div>`,
+            props:["text","number"]
        }
        
        const firstList={
            template:`<div>
-                <second-list :text="abc"></second-list>
+                <second-list :text="abc" :number="'第一个'"></second-list>
+                <second-list :text="abc" :number="'第二个'"></second-list>
             </div>`,
            props:['abc'],
            components:{
@@ -34,7 +35,7 @@
        new Vue({
            el:"#app",
            data:{
-               msg:"我是一个孙子组件"
+               msg:"孙子组件"
            },
            components:{firstList}
        })
